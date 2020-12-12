@@ -5,9 +5,10 @@ const todoList = document.querySelector('.todo-list');
 
 // Event Listeners
 todoButton.addEventListener('click', addTodo);
+todoList.addEventListener('click', deleteCheck);
 
 // Functions
-function addTodo(event){
+function addTodo(event) {
     // stopping form from submitting
     event.preventDefault();
     // create new DIV
@@ -20,7 +21,7 @@ function addTodo(event){
     todoDiv.appendChild(newItem);
     // create CHECK BUTTON
     const completedButton = document.createElement('button');
-    completedButton.classList.add('completed-btn');
+    completedButton.classList.add('complete-btn');
     completedButton.innerHTML = '<i class="fas fa-check"></i>';
     todoDiv.appendChild(completedButton);
     // create DELETE Button
@@ -32,4 +33,18 @@ function addTodo(event){
     todoList.appendChild(todoDiv);
     // clear input value
     todoInput.value = '';
+}
+
+function deleteCheck(event) {
+    const item = event.target;
+    const todo = item.parentElement;
+
+    if (item.classList.contains('trash-btn')) {
+        todo.classList.add('fall');
+        todo.addEventListener('transitionend', () => {
+            todo.remove();
+        });
+    } else {
+        todo.classList.toggle('completed');
+    }
 }
