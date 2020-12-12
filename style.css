@@ -22,6 +22,7 @@ form {
 
 header {
     font-size: 1.5rem;
+    letter-spacing: 1px;
 }
 
 /* Input and Button */
@@ -30,7 +31,7 @@ form button {
     border: none;
     outline: none;
     padding: .5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     background-color: #fff;
     font-family: 'Cabin', sans-serif;
 }
@@ -103,4 +104,41 @@ form button:hover {
 .completed {
     text-decoration: line-through;
     opacity: .5;
+}
+
+/* Filter Options */
+.select {
+    position: relative;
+    overflow: hidden;
+    margin: 1rem;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    color: #ff6f47;
+    font-family: 'Cabin', sans-serif;
+    width: 10rem;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff6f47;
+    padding: 1rem;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+
+.select:hover::after {
+    background-color: #fff;
+    color: #ff6f47;
 }
