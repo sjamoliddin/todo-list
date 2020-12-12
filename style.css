@@ -39,6 +39,7 @@ form button {
 form button {
     color: #F3904F;
     background-color: #fff;
+    margin-left: -.5rem;
     cursor: pointer;
     transition: all .3s ease;
 }
@@ -141,4 +142,47 @@ select {
 .select:hover::after {
     background-color: #fff;
     color: #ff6f47;
+}
+
+/* Responsiveness */
+
+@media (max-width: 570px) {
+    form {
+        flex-direction: column;
+    }
+
+    .todo-list {
+        width: 79%;
+    }
+
+    select {
+        padding: .9rem;
+    }
+
+    .select::after {
+        padding: .9rem;
+    }
+}
+
+@media (max-width: 420px) {
+    form {
+        width: 100%;
+    }
+
+    form .inputs {
+        text-align: center;
+    }
+
+    form input {
+        width: 70%;
+    }
+
+    form input,
+    form button {
+        font-size: 1.6rem;
+    }
+
+    .todo {
+        font-size: 1.3rem;
+    }
 }
